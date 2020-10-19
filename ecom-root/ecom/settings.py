@@ -13,12 +13,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-print("Path -" + str(__file__) + " Work -" + str(Path.cwd()) + " Home -" + str(Path.home()))
-
-path = Path.cwd() / 'urls.py'
-print(path.read_text())
+print("Path -" + str(BASE_DIR))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -126,14 +123,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, '/static/')
+    str(BASE_DIR / 'static')
 ]
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = str(BASE_DIR / 'static/assets')
 
-print("------"+ STATIC_ROOT)
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static', 'media')
+MEDIA_ROOT = str(BASE_DIR / 'static' / 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
